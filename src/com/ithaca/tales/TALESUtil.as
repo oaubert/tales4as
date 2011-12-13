@@ -50,7 +50,7 @@ public class TALESUtil
 
         for each (var m: XML in xml..method)
         {
-            if (numParams == -1 || numParams == (m..parameter).length)
+            if (numParams == -1 || numParams == (m.children().length()))
                 res.push(m.@name);
         }
         res.sort();
