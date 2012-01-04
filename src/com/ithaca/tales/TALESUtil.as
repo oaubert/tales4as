@@ -41,7 +41,7 @@ public class TALESUtil
      * Return the names of valid methods for the object.
      *
      * If numParams is specified, return methods that take the given
-     * number of parameters.
+     * number of mandatory parameters.
      */
     public static function validMethods(o: Object, numParams: int = -1): Array
     {
@@ -50,7 +50,9 @@ public class TALESUtil
 
         for each (var m: XML in xml..method)
         {
-            if (numParams == -1 || numParams == (m.children().length()))
+            var mandatoryParam: XMLList = m.parameter.(@optional == false);
+            // trace("Checking method " + m.@name + " -> " + mandatoryParam);
+            if (numParams == -1 || numParams <= mandatoryParam.length())
                 res.push(m.@name);
         }
         res.sort();
