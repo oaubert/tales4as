@@ -10,8 +10,8 @@ import mx.utils.StringUtil;
 public class Context
 {
     private var _this: * = this;
-    private var locals: Object = new Object();
-    private var globals: Object = new Object();
+    public var locals: Object = new Object();
+    public var globals: Object = new Object();
 
     public function Context(ref: *, locals: Object = null)
     {
@@ -250,7 +250,7 @@ public class Context
 					else if (callable (path))
                         path = path.apply(this, new Array());
                 }
-				trace("Dereferenced to ", path)
+				// trace("Dereferenced to ", path)
             }
 			try 
             {
