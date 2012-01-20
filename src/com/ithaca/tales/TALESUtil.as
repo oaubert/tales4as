@@ -131,7 +131,7 @@ public class TALESUtil
                 target = ctx.evaluate(expr);
                 expr = expr + "/"
                 toComplete = arr[arr.length - 1];
-                trace("Completing", expr, "(", target, ") with ", toComplete);
+                // trace("Completing", expr, "(", target, ") with ", toComplete);
             }
 
             if (toComplete.length == 0)

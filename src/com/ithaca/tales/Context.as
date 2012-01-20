@@ -64,7 +64,7 @@ public class Context
 
     public function evaluatePath(expr: String): *
     {
-        trace("Evaluating path: ", expr);
+        // trace("Evaluating path: ", expr);
         var allPaths: Array = expr.split('|')
 		if (allPaths.length > 1)
         {
@@ -93,7 +93,7 @@ public class Context
 
 	public function evaluateString(expr: String): *
     {
-        trace("Evaluating String ", expr);
+        // trace("Evaluating String ", expr);
 		var result: String = "";
 		var skipCount: int = 0;
         var pathResult: String;
@@ -174,7 +174,7 @@ public class Context
     {
         // canCall only applies to the *final* path destination, not points down the path.
 	    // Check for and correct for trailing/leading quotes
-        trace("traversePath ", expr);
+        // trace("traversePath ", expr);
 		if (expr.charAt(0) == '"' || expr.charAt(0) == "'")
         {
 			if (expr.charAt(expr.length - 1) == '"' || expr.charAt(expr.length - 1) == "'")
@@ -268,7 +268,7 @@ public class Context
 				return e.value()
             }
 				
-            trace("Temp=", temp);
+            // trace("Temp=", temp);
             try
             {
                 val = temp[path];
@@ -287,7 +287,7 @@ public class Context
 
 			index = index + 1
         }
-        trace("Found value ", val);
+        // trace("Found value ", val);
 
 		if (canCall)
         {
