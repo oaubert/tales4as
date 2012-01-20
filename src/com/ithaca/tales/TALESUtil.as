@@ -52,7 +52,7 @@ public class TALESUtil
         {
             var mandatoryParam: XMLList = m.parameter.(@optional == false);
             // trace("Checking method " + m.@name + " -> " + mandatoryParam);
-            if (numParams == -1 || numParams <= mandatoryParam.length())
+            if (numParams == -1 || mandatoryParam.length() <= numParams)
                 res.push(m.@name);
         }
         res.sort();
