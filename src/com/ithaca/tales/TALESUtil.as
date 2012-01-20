@@ -113,13 +113,18 @@ public class TALESUtil
             var target: * = null;
             var toComplete: String;
             var possibilities: Array;
-            var ctx: Context = new Context(contextObject ? contextObject : event.target);
+            var ctx: Context = new Context(contextObject.hasOwnProperty('this') ? contextObject['this'] : event.target);
+            for (var n: String in contextObject)
+            {
+                ctx.locals[n] = contextObject[n];
+            }
 
             if (arr.length == 1)
             {
                 // No / -> complete the first part
                 toComplete = arr[0];
                 expr = "";
+                target = ctx.locals;
             }
             else
             {
