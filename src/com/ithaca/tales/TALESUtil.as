@@ -77,12 +77,28 @@ public class TALESUtil
         {
             res.push(m.@name);
         }
+        for each (m in xml..constant)
+        {
+            res.push(m.@name);
+        }
+
+        if (res.length == 0)
+        {
+            /* Empty describeType: show ownProperties */
+            for (var n: String in o)
+                res.push(n);
+        }
         res.sort();
         return res;
     }
 
     /**
      * Handle TextInput event on a TextInput component to implement completion.
+     *
+     * contextObject is a dictionary. It *MUST* have a this key to
+     * specify the main context target. Additional properties will be
+     * used to populate the 'locals' dictionary, e.g.:
+     * onTALESTextInput(event, { 'this': event.target, 'foo': this.foo, 'bar': this.bar });
      */
     public static function onTALESTextInput(event: TextEvent, contextObject: Object = null, output: Function = null): void
     {
